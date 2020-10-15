@@ -1,0 +1,109 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.demo.TimeandAttendance.controller.Requests"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page showHeader="true" enableScrolling="true" class="sapUiResponsivePadding--header">
+				<customHeader>
+					<Bar class="header2">
+						<contentLeft>
+							<Image src="image/inc.png" class="sapUiTinyMarginTop"/>
+						</contentLeft>
+						<contentMiddle>
+							<Text text="{i18n>Time And Attendance}" class="sansserif"/>
+						</contentMiddle>
+						<contentRight>
+							<Button icon="sap-icon://home" id="home1" tooltip="{i18n>HOME}" class="sapUiLargeMarginBegin sapUiSmallMarginEnd myButtonStyle iconstyle"
+								press="onHome"/>
+							<Button icon="sap-icon://approvals" id="approve1" tooltip="{i18n>REQUEST}" class="sapUiSmallMarginBeginEnd iconstyle styleHeader"
+								press="onApproval"/>
+							<Button icon="sap-icon://customer-history" id="history1" tooltip="{i18n>HISTORY}" class="sapUiSmallMarginBeginEnd iconstyle"
+								press="onHistory"/>
+							<Button icon="sap-icon://business-card" id="card1" tooltip="{i18n>PROFILE}" class="sapUiSmallMarginBegin sapUiTinyMarginEnd iconstyle"
+								press="onCard"/>
+							<Button icon="sap-icon://log" id="logout1" tooltip="{i18n>LOGOUT}" class="sapUiSmallMarginBegin sapUiTinyMarginEnd iconstyle" press="onLog"/>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<subHeader>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<ToolbarSpacer/>
+						<Text id="oLabel1" class="sapUiTinyMarginEnd"/>
+						<Button text="{i18n>Add +}" press="onAdd" type="Emphasized" class="sapUiTinyMarginBegin"/>
+					</Toolbar>
+				</subHeader>
+				<content>
+					<IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}" class="sapUiSmallMarginTop">
+						<items>
+							<IconTabFilter text="{i18n>My Requests}" select="onRequest">
+								<Table id="idRequestTable" items="{oRequestModel>/}" class="reqTable" width="100%">
+									<columns>
+										<Column hAlign="Left" vAlign="Middle" width="30px">
+											<Text text="{i18n>Date}" class="coltxt"/>
+										</Column>
+										<Column hAlign="Left" vAlign="Middle" width="80px">
+											<Text text="{i18n>Description}" class="coltxt"/>
+										</Column>
+										<Column hAlign="Left" vAlign="Middle" width="50px">
+											<Text text="{i18n>Query}" class="coltxt"/>
+										</Column>
+										<Column hAlign="Left" vAlign="Middle" width="30px">
+											<Text text="{i18n>Status}" class="coltxt"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Text text="{path: 'oRequestModel>requestDate', formatter:'com.demo.TimeandAttendance.utility.formatter.changeDate'}" class="celtxt"/>
+												<Text text="{oRequestModel>description}" class="celtxt"/>
+												<Text text="{oRequestModel>querytype}" class="celtxt"/>
+												<Text text="{oRequestModel>status}" class="celtxt"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</IconTabFilter>
+							<IconTabFilter text="{i18n>My Approvals}" press="onApprove" visible="{oReqModel>/approveVisible}">
+								<Table id="idApprovalTable" items="{oApprovalModel>/}" class="reqTable" width="100%">
+									<columns>
+										<Column hAlign="Left" vAlign="Middle" width="50px">
+											<Text text="{i18n>Date}" class="coltxt"/>
+										</Column>
+										<Column hAlign="Left" vAlign="Middle" width="50px">
+											<Text text="{i18n>Name}" class="coltxt"/>
+										</Column>
+										<Column hAlign="Left" vAlign="Middle" width="50px">
+											<Text text="{i18n>Query}" class="coltxt"/>
+										</Column>
+										<Column hAlign="Left" vAlign="Middle" width="50px">
+											<Text text="{i18n>Description}" class="coltxt"/>
+										</Column>
+										<Column hAlign="Left" vAlign="Middle" width="50px">
+											<Text text="{i18n>Action}" class="coltxt"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Text text="{path: 'oApprovalModel>requestDate', formatter:'com.demo.TimeandAttendance.utility.formatter.changeDate'}" class="celtxt"/>
+												<Text text="{oApprovalModel>empName}" class="celtxt"/>
+												<Text text="{oApprovalModel>querytype}" class="celtxt"/>
+												<Text text="{oApprovalModel>description}" class="celtxt"/>
+												<HBox>
+													<Button text="{i18n>Approve}" type="Accept" visible="{= ${oApprovalModel>status} !== 'Pending' ? false : true}" press="onAccept"/>
+													<Button text="{i18n>Reject}" type="Reject" class="sapUiTinyMarginBegin" visible="{= ${oApprovalModel>status} !== 'Pending' ? false : true}"
+														press="onReject"/>
+													<Text text="{oApprovalModel>status}" class="celtxt" visible="{= ${oApprovalModel>status} !== 'Pending' ? true : false}"/>
+												</HBox>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,31 @@
+[{
+	"Date": "24-06-2020",
+	"Name": "Employee1",
+	"Query": "Worked for 6hrs",
+	"Status": "Rejected"
+}, {
+	"Date": "25-06-2020",
+	"Name": "Employee2",
+	"Query": "Overtime, Worked for 9hrs",
+	"Status": "Approved"
+}, {
+	"Date": "26-06-2020",
+	"Name": "Employee3",
+	"Query": "Change in Location",
+	"Status": "Pending"
+}, {
+	"Date": "28-06-2020",
+	"Name": "Employee1",
+	"Query": "Worked for 6hrs",
+	"Status": "Rejected"
+}, {
+	"Date": "29-06-2020",
+	"Name": "Employee2",
+	"Query": "Overtime, Worked for 9hrs",
+	"Status": "Approved"
+}, {
+	"Date": "01-07-2020",
+	"Name": "Employee3",
+	"Query": "Change in Location",
+	"Status": "Pending"
+}]

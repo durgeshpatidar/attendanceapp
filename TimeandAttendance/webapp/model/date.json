@@ -1,0 +1,33 @@
+{
+	"Kushal": [
+		{
+			"Date":"22-06-2020",
+			"Check In":"10:00",
+			"Check Out":"18:00",
+			"Approval Status":""
+		},
+		{
+			"Date":"23-06-2020",
+			"Check In":"10:10",
+			"Check Out":"18:00",
+			"Approval Status":""
+		},
+		{
+			"Date":"24-06-2020",
+			"Check In":"10:05",
+			"Check Out":"16:00",
+			"Approval Status":"Rejected"
+		},
+		{
+			"Date":"25-06-2020",
+			"Check In":"10:00",
+			"Check Out":"18:40",
+			"Approval Status":""
+		},
+		{
+			"Date":"26-06-2020",
+			"Check In":"10:00",
+			"Check Out":"20:00",
+			"Approval Status":"Pending"
+		}]
+}

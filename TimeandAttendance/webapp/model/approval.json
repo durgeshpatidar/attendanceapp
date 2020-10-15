@@ -1,0 +1,18 @@
+{
+	"Approve": [
+		{
+			"Date":"24-06-2020",
+			"Name":"Employee1",
+			"Query":"Worked for 6hrs"
+		},
+		{
+			"Date":"25-06-2020",
+			"Name":"Employee2",
+			"Query":"Overtime, Worked for 9hrs"
+		},
+		{
+			"Date":"26-06-2020",
+			"Name":"Employee3",
+			"Query":"Change in Location"
+		}]
+}

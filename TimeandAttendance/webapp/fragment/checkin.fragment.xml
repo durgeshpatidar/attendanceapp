@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout">
+	<Dialog contentWidth="32rem">
+		<customHeader>
+			<Bar class="hdbar">
+				<contentMiddle>
+					<Text text="{i18n>Check In Verification}" class="hfrag"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<HBox>
+				<VBox>
+					<Avatar src="./test-resources/sap/f/images/Woman_avatar_01.png" displaySize="Custom" customDisplaySize="150px" showBorder="true"
+						class="avat"/>
+					<Button text="{i18n>Verify FaceId}" id="vface" class="vfbtn" visible="{oHomeModel>/bVisible}" press="onFace"/>
+					<Button text="{i18n>Verified}" id="vfied" class="vfiedbtn" visible="{oHomeModel>/bVisible1}" enabled="{oHomeModel>/bEnable1}"/>
+				</VBox>
+				<VBox>
+					<HBox id="gMapContainer" fitContainer="true" justifyContent="Center" alignItems="Center" class="mapFragView sapUiSmallMarginEnd"/>
+					<Button text="{i18n>Verify Location}" id="vloca" class="vfbtn" visible="{oHomeModel>/bVisible2}" enabled="{oHomeModel>/bEnable}" press="onLocation"/>
+					<Button text="{i18n>Verified}" id="vfied1" class="vfiedbtn" visible="{oHomeModel>/bVisible3}" enabled="{oHomeModel>/bEnable2}"/>
+				</VBox>
+			</HBox>
+			<HBox justifyContent="End">
+				<Button text="{i18n>Check In}" type="Accept" width="6rem" press="onCheckInFrag" enabled="{oHomeModel>/bEnable3}"/>
+				<Button text="{i18n>Cancel}" type="Reject" class="sapUiSmallMarginBegin sapUiTinyMarginEnd" press="onCancel" width="5rem"/>
+			</HBox>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

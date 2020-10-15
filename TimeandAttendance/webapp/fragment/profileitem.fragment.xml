@@ -1,0 +1,76 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout">
+	<!--<Dialog contentHeight="360px" contentWidth="520px">-->
+	<Dialog>
+		<customHeader>
+			<Bar class="hdbar">
+				<contentLeft>
+					<Text text="{i18n>Profile Details}" class="hfrag"/>
+				</contentLeft>
+				<contentRight>
+					<Button icon="sap-icon://decline" class="iconcancel" press="onClose"/>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<content>
+			<HBox>
+				<VBox>
+					<HBox renderType="Bare" class="proftile">
+						<VBox class="sapUiTinyMarginTop">
+							<Avatar src="image/photo.jpg" class="sapUiTinyMarginBegin avatprof" displaySize="Custom" customDisplaySize="100px" showBorder="true"/>
+							<HBox class="sapUiTinyMarginTop">
+								<Text text="{i18n>Name }" class="ploctxt sapUiTinyMarginTop"/>
+								<Text text="{oProfileModel>/fullName}" textAlign="Center" class="sploctxt sapUiTinyMarginTop"/>
+							</HBox>
+							<HBox class="sapUiTinyMarginTop">
+								<Text text="{i18n>Employee ID }" class="ploctxt sapUiTinyMarginTop"/>
+								<Text text="{oProfileModel>/id}" textAlign="Center" class="sploctxt sapUiTinyMarginTop"/>
+							</HBox>
+							<HBox class="sapUiTinyMarginTop">
+								<Text text="{i18n>Designation }" class="ploctxt sapUiTinyMarginTop"/>
+								<Text text="{oProfileModel>/designation}" class="sploctxt sapUiTinyMarginTop"/>
+							</HBox>
+							<HBox class="sapUiTinyMarginTop">
+								<Text text="{i18n>Email ID }" class="ploctxt sapUiTinyMarginTop"/>
+								<Text text="{oProfileModel>/emailId}" class="sploctxt sapUiTinyMarginTop"/>
+							</HBox>
+							<HBox class="sapUiTinyMarginTop">
+								<Text text="{i18n>Manager }" class="ploctxt sapUiTinyMarginTop"/>
+								<Text text="{oProfileModel>/ManagerName}" class="sploctxt sapUiTinyMarginTop"/>
+							</HBox>
+						</VBox>
+					</HBox>
+				</VBox>
+				<VBox class="sapUiMediumMarginTop sapUiMediumMarginBeginEnd">
+					<HBox>
+						<Text text="{i18n>My Addresses}" textAlign="Center" class="profhtxt"/>
+					</HBox>
+					<VBox class="sapUiTinyMarginTop sapUiTinyMarginBegin">
+						<HBox class="sapUiTinyMarginTop sapUiTinyMarginBegin">
+							<Text text="{i18n>Location 1 : }" class="ploctxt"/>
+							<Text text="{oAddressModel>/OfficeAddress1}" class="sploctxt"/>
+						</HBox>
+						<HBox class="sapUiTinyMarginTop sapUiTinyMarginBegin">
+							<Text text="{i18n>Location 2 : }" class="ploctxt"/>
+							<Text text="{oAddressModel>/OfficeAddress2}" class="sploctxt"/>
+						</HBox>
+						<HBox class="sapUiTinyMarginTop sapUiTinyMarginBegin">
+							<Text text="{i18n>Location 3 : }" class="ploctxt"/>
+							<Text text="{oAddressModel>/HomeAddress1}" class="sploctxt"/>
+						</HBox>
+					</VBox>
+					<VBox visible="{oAddressModel>/visible}" class="sapUiSmallMarginTop">
+						<HBox>
+							<Text text="{i18n>Temporary Address}" textAlign="Center" class="profhtxt"/>
+						</HBox>
+						<VBox class="sapUiTinyMarginTop sapUiTinyMarginBegin">
+							<HBox class="sapUiTinyMarginTop sapUiTinyMarginBegin">
+								<Text text="{i18n>Location 4 : }" class="ploctxt"/>
+								<Text text="{oAddressModel>/HomeAddress2}" class="sploctxt"/>
+							</HBox>
+						</VBox>
+					</VBox>
+				</VBox>
+			</HBox>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

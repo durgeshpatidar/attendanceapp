@@ -1,0 +1,47 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.demo.TimeandAttendance.controller.Profile"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page showHeader="true" enableScrolling="false" class="sapUiResponsivePadding--header">
+					<customHeader>
+						<Bar class="header2">
+							<contentLeft>
+								<Image src="image/inc.png"/>
+							</contentLeft>
+							<contentMiddle>
+								<Text text="Time And Attendance" class="sansserif"/>
+							</contentMiddle>
+							<contentRight>
+								<Button icon="sap-icon://home" id="home" tooltip="{i18n>HOME}"  class="sapUiLargeMarginBegin sapUiSmallMarginEnd myButtonStyle" press="onHome"/>
+								<Button icon="sap-icon://approvals" id="approve" tooltip="{i18n>REQUESTS}"  class="sapUiSmallMarginBeginEnd" press="onApproval"/>
+								<Button icon="sap-icon://customer-history" id="history" tooltip="{i18n>HISTORY}"  class="sapUiSmallMarginBeginEnd" press="onHistory"/>
+                                <Button icon="sap-icon://business-card" id="card" tooltip="{i18n>PROFILE}"  class="sapUiSmallMarginBegin sapUiLargeMarginEnd styleHeader" press="onCard"/>
+							</contentRight>
+						</Bar>
+					</customHeader>
+					<content>
+						<Label text=" " id="date" class="head2"/>
+						<VBox>
+							<Avatar src="./test-resources/sap/f/images/Woman_avatar_01.png" displaySize="Custom" customDisplaySize="150px" showBorder="true"
+								class="avatar"/>
+						</VBox>
+						<HBox class="sapUiSizeCompact Hbox2">
+							<VBox class="Vbox1">
+								<Text text="Employee Details" class=" sapUiTinyMargin fstyle" textAlign="Center"/>
+								<Text text="Employee ID : INC2088" class="sapUiTinyMargin f1style"/>
+								<Text text="Designation : UI Developer" class="sapUiTinyMargin f1style"/>
+								<Text text="Email ID    : xyz@inc.com" class="sapUiTinyMargin f2style"/>
+							</VBox>
+							<VBox class="Vbox2">
+								<Text text="My Addresses" class="sapUiTinyMargin fstyle" textAlign="Center"/>
+								<Text text="Location 1 : Main Branch address" class="sapUiTinyMargin f1style"/>
+								<Text text="Location 2 : Sub Branch address" class="sapUiTinyMargin f1style"/>
+								<HBox><Text text="Location 3 : Home Address" class="sapUiTinyMargin f1style"/>
+								<Button text="Add +" class="f2style adbtn" press="onAdd"/></HBox>
+							</VBox>
+						</HBox>
+					</content>
+				</Page>
+		</pages>
+	</App>
+</mvc:View>

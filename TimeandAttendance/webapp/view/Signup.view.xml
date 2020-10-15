@@ -1,0 +1,37 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.demo.TimeandAttendance.controller.Signup"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page enableScrolling="false" class="backgroundimg sapUiResponsivePadding--header">
+				<customHeader>
+					<Bar class="header">
+						<contentLeft>
+							<Image class="logo" src="image/inc.png"/>
+						</contentLeft>
+					</Bar>
+				</customHeader>
+				<content>
+					<VBox class="sapUiSizeCompact Box" renderType="Bare" fitContainer="true" justifyContent="Center" alignItems="Center" alignContent="Center">
+						<Label text="Sign Up" class="Signin "/>
+						<Label class="sapUiTinyMargin" text="Enter your Details"/>
+						<items>
+							<HBox class="Hbox sapUiTinyMargin" width="20%">
+								<Input class="sapUiTinyMargin inputfield" width="100%" placeholder="Full Name"></Input>
+							</HBox>
+							<HBox class="Hbox sapUiTinyMargin" width="20%">
+								<Input class="sapUiTinyMargin inputfield" width="100%" type="Email" placeholder="Email ID"></Input>
+							</HBox>
+							<HBox class="Hbox sapUiTinyMargin" width="20%">
+								<Input class="sapUiTinyMargin inputfield" width="100%" placeholder="Password" type="Password"></Input>
+							</HBox>
+							<HBox class="Hbox sapUiTinyMargin" width="20%">
+								<Input class="sapUiTinyMargin inputfield" width="100%" placeholder="Confirm Password" type="Password"></Input>
+							</HBox>
+							<Button text="Next" class="loginbutton sapUiTinyMargin" press="onNextTap"></Button>
+						</items>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

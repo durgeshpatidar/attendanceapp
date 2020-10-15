@@ -1,0 +1,161 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.demo.TimeandAttendance.controller.History"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page showHeader="true" enableScrolling="true" class="sapUiResponsivePadding--header">
+				<customHeader>
+					<Bar class="header2">
+						<contentLeft>
+							<Image src="image/inc.png" class="sapUiTinyMarginTop"/>
+						</contentLeft>
+						<contentMiddle>
+							<Text text="{i18n>Time And Attendance}" class="sansserif"/>
+						</contentMiddle>
+						<contentRight>
+							<Button icon="sap-icon://home" id="home2" tooltip="{i18n>HOME}" class="sapUiLargeMarginBegin sapUiSmallMarginEnd myButtonStyle iconstyle"
+								press="onHome"/>
+							<Button icon="sap-icon://approvals" id="approve2" tooltip="{i18n>REQUESTS}" class="sapUiSmallMarginBeginEnd iconstyle" press="onApproval"/>
+							<Button icon="sap-icon://customer-history" id="history2" tooltip="{i18n>HISTORY}" class="sapUiSmallMarginBeginEnd styleHeader iconstyle"
+								press="onHistory"/>
+							<Button icon="sap-icon://business-card" id="card2" tooltip="{i18n>PROFILE}" class="sapUiSmallMarginBegin sapUiTinyMarginEnd iconstyle"
+								press="onCard"/>
+							<Button icon="sap-icon://log" id="logout2" tooltip="{i18n>LOGOUT}" class="sapUiSmallMarginBegin sapUiTinyMarginEnd iconstyle" press="onLog"/>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<subHeader>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<ToolbarSpacer/>
+						<Text id="oLabel2" class="sapUiTinyMarginEnd"/>
+						<Button icon="sap-icon://download" text="{i18n>Export}" type="Emphasized" press="onDataExport" tooltip="{i18n>download}" id="download"/>
+					</Toolbar>
+				</subHeader>
+				<content>
+					<VBox visible="{oModel>/vBox}">
+						<VBox>
+							<HBox class="sapUiSmallMarginTop" visible="{oModel>/vCombo}" justifyContent="SpaceBetween">
+								<ComboBox items="{oComboModel>/data}" selectedKey="{oComboModel>/sSelectedKey}" class="sapUiSmallMarginBegin">
+									<core:Item key="{oComboModel>name}" text="{oComboModel>name}"/>
+								</ComboBox>
+								<HBox>
+									<Button type="Transparent" text="{i18n>Clear}" press="onComboClear"/>
+									<Button type="Emphasized" text="{i18n>Go}" class="sapUiTinyMarginBegin sapUiSmallMarginEnd" press="onComboGo"/>
+								</HBox>
+							</HBox>
+							<Panel expandable="true" expand="onExpand" headerText="Filter" width="auto" class="sapUiSmallMarginTop panel">
+								<content>
+									<HBox justifyContent="SpaceBetween">
+										<HBox>
+											<Label text="{i18n>Start Date :}" labelFor="DP1" class="sapUiSmallMarginTop sapUiTinyMarginBottom sapUiSmallMarginBegin"/>
+											<DatePicker placeholder="{i18n>Enter Date}" value="{oModel>/sDate}" valueFormat="yyyy-MM-dd" change="handleChange" class="sapUiTinyMarginBeginEnd"/>
+											<Label text="{i118n>End Date :}" labelFor="DP1" class="sapUiSmallMarginTop sapUiTinyMarginBottom sapUiMediumMarginBegin"/>
+											<DatePicker placeholder="{i18n>Enter Date}" value="{oModel>/eDate}" valueFormat="yyyy-MM-dd" change="handleChange" class="sapUiTinyMarginBegin"/>
+										</HBox>
+										<HBox>
+											<Button type="Transparent" text="{i18n>Clear}" class="sapUiMediumMarginBegin" press="onClear"/>
+											<Button type="Emphasized" text="{i18n>Go}" class="sapUiTinyMarginBegin" press="onGo"/>
+										</HBox>
+									</HBox>
+								</content>
+							</Panel>
+						</VBox>
+						<Table id="idEmployeeTable" items="{oHistoryModel>/}" class="hisTable" width="100%">
+							<columns>
+								<Column hAlign="Center" vAlign="Middle" width="50px">
+									<Text text="{i18n>Date}" class="coltxt"/>
+								</Column>
+								<Column hAlign="Center" vAlign="Middle" width="50px">
+									<Text text="{i18n>Check In}" class="coltxt"/>
+								</Column>
+								<Column hAlign="Center" vAlign="Middle" width="50px">
+									<Text text="{i18n>Check Out}" class="coltxt"/>
+								</Column>
+								<Column hAlign="Center" vAlign="Middle" width="50px">
+									<Text text="{i18n>Emp Id}" class="coltxt"/>
+								</Column>
+								<Column hAlign="Center" vAlign="Middle" width="50px">
+									<Text text="{i18n>Approval Status}" class="coltxt"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{path: 'oHistoryModel>date', formatter:'com.demo.TimeandAttendance.utility.formatter.changeDate'}" class="celtxt"/>
+										<Text text="{path: 'oHistoryModel>checkIn', formatter:'com.demo.TimeandAttendance.utility.formatter.changeTime'}" class="celtxt"/>
+										<Text text="{path: 'oHistoryModel>checkOut', formatter:'com.demo.TimeandAttendance.utility.formatter.changeTime'}" class="celtxt"/>
+										<Text text="{oHistoryModel>empId}" class="celtxt"/>
+										<Text text="{oHistoryModel>status}" class="celtxt"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</VBox>
+					<VBox visible="{oModel>/vBox1}">
+						<VBox>
+							<HBox class="sapUiSmallMarginTop" visible="{oModel>/vCombo}" justifyContent="SpaceBetween">
+								<ComboBox items="{oComboModel>/data}" selectedKey="{oComboModel>/sSelectedKey}" class="sapUiSmallMarginBegin">
+									<core:Item key="{oComboModel>name}" text="{oComboModel>name}"/>
+								</ComboBox>
+								<HBox>
+									<Button type="Transparent" text="{i18n>Clear}" press="onComboClear"/>
+									<Button type="Emphasized" text="{i18n>Go}" class="sapUiTinyMarginBegin sapUiSmallMarginEnd" press="onComboGo"/>
+								</HBox>
+							</HBox>
+							<Panel expandable="true" expand="onExpand" headerText="Filter" width="auto" class="sapUiSmallMarginTop panel">
+								<content>
+									<HBox justifyContent="SpaceBetween">
+										<HBox>
+											<Label text="{i18n>Start Date :}" labelFor="DP1" class="sapUiSmallMarginTop sapUiTinyMarginBottom sapUiSmallMarginBegin"/>
+											<DatePicker placeholder="{i18n>Enter Date}" value="{oModel>/sDate}" valueFormat="yyyy-MM-dd" change="handleChange" class="sapUiTinyMarginBeginEnd"/>
+											<Label text="{i18n>End Date :}" labelFor="DP1" class="sapUiSmallMarginTop sapUiTinyMarginBottom sapUiMediumMarginBegin"/>
+											<DatePicker placeholder="{i18n>Enter Date}" value="{oModel>/eDate}" valueFormat="yyyy-MM-dd" change="handleChange" class="sapUiTinyMarginBegin"/>
+										</HBox>
+										<HBox>
+											<Button type="Transparent" text="{i18n>Clear}" class="sapUiMediumMarginBegin" press="onClear"/>
+											<Button type="Emphasized" text="{i18n>Go}" class="sapUiTinyMarginBegin" press="onGo"/>
+										</HBox>
+									</HBox>
+								</content>
+							</Panel>
+						</VBox>
+						<Table items="{oHistoryModel>/}" class="hisTable" width="100%">
+							<columns>
+								<Column hAlign="Center" vAlign="Middle" width="50px">
+									<Text text="{i18n>Date}" class="coltxt"/>
+								</Column>
+								<Column hAlign="Center" vAlign="Middle" width="50px">
+									<Text text="{i18n>Check In}" class="coltxt"/>
+								</Column>
+								<Column hAlign="Center" vAlign="Middle" width="50px">
+									<Text text="{i18n>Check Out}" class="coltxt"/>
+								</Column>
+								<Column hAlign="Center" vAlign="Middle" width="50px">
+									<Text text="{i18n>Emp Id}" class="coltxt"/>
+								</Column>
+								<Column hAlign="Center" vAlign="Middle" width="50px">
+									<Text text="{i18n>Approval Status}" class="coltxt"/>
+								</Column>
+								<Column hAlign="Center" vAlign="Middle" width="50px">
+									<Text text="{i18n>Action}" class="coltxt"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{path: 'oHistoryModel>date', formatter:'com.demo.TimeandAttendance.utility.formatter.changeDate'}" class="celtxt"/>
+										<Text text="{path: 'oHistoryModel>checkIn', formatter:'com.demo.TimeandAttendance.utility.formatter.changeTime'}" class="celtxt"/>
+										<Text text="{path: 'oHistoryModel>checkOut', formatter:'com.demo.TimeandAttendance.utility.formatter.changeTime'}" class="celtxt"/>
+										<Text text="{oHistoryModel>empId}" class="celtxt"/>
+										<Text text="{oHistoryModel>status}" class="celtxt"/>
+										<Button text="{i18n>Update}" enabled="{= ${oHistoryModel>empId} !== 'INC1' ? true : false}" type="Emphasized" press="onUpdate"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

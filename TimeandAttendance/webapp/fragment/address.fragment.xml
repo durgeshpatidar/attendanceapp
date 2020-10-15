@@ -1,0 +1,50 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout">
+	<Dialog>
+		<customHeader>
+			<Bar class="hdbar">
+				<contentLeft>
+					<Text text="{i18n>Add Address}" class="hfrag"/>
+				</contentLeft>
+				<contentRight>
+					<Button icon="sap-icon://decline" class="iconcancel" press="onCancel"/>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<content>
+			<HBox>
+				<VBox>
+					<HBox class="sapUiMediumMarginTop sapUiSmallMarginBegin sapUiSizeCompact">
+						<Label text="{i18n>Address}" class="sapUiTinyMarginTop fragtxt" required="true"/>
+						<Input placeholder="{i18n>Enter Address}" value="{oAddAddressModel>/address}" width="100%"/>
+					</HBox>
+					<HBox class="sapUiTinyMarginTopBottom sapUiSmallMarginBegin sapUiSizeCompact">
+						<Label text="{i18n>State}" class="sapUiTinyMarginTop fragtxt" required="true"/>
+						<Input placeholder="{i18n>Enter State}" value="{oAddAddressModel>/state}" width="100%"/>
+					</HBox>
+					<HBox class="sapUiTinyMarginTopBottom sapUiSmallMarginBegin sapUiSizeCompact">
+						<Label text="{i18n>City}" class="sapUiTinyMarginTop fragtxt" required="true"/>
+						<Input placeholder="{i18n>Enter City}" value="{oAddAddressModel>/city}" width="100%"/>
+					</HBox>
+					<HBox class="sapUiTinyMarginTopBottom sapUiSmallMarginBegin sapUiSizeCompact">
+						<Label text="{i18n>Pincode}" class="sapUiTinyMarginTop fragtxt" required="true"/>
+						<Input placeholder="{i18n>Enter Pincode}" value="{oAddAddressModel>/pincode}" width="100%"/>
+					</HBox>
+					<HBox class="sapUiTinyMarginTopBottom sapUiSmallMarginBegin sapUiSizeCompact">
+						<Label text="{i18n>Start Date}" labelFor="DP1" class="sapUiTinyMarginTop fragtxt" required="true"/>
+						<DatePicker placeholder="{i18n>Enter Date}" valueFormat="yyyy-MM-dd" value="{oAddAddressModel>/validFrom}" change="handleChange"/>
+					</HBox>
+					<HBox class="sapUiTinyMarginTopBottom sapUiSmallMarginBegin sapUiSizeCompact">
+						<Label text="{i18n>End Date}" labelFor="DP1" class="sapUiTinyMarginTop fragtxt" required="true"/>
+						<DatePicker placeholder="{i18n>Enter Date}" valueFormat="yyyy-MM-dd" value="{oAddAddressModel>/validTo}" change="handleChange"/>
+					</HBox>
+				</VBox>
+				<VBox>
+					<Image src="image/map.jpg" class="imge sapUiTinyMarginEnd" width="200px" height="150px"/>
+				</VBox>
+			</HBox>
+			<HBox justifyContent="End">
+				<Button text="{i18n>Add}" type="Emphasized" width="5rem" class="sapUiTinyMarginEnd" press="onPostAddress"/>
+			</HBox>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,131 @@
+<mvc:View controllerName="com.demo.TimeandAttendance.controller.Login" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	displayBlock="true" xmlns="sap.m">
+	<App id="app">
+		<pages>
+			<Page enableScrolling="false" showHeader="false" class="pagelogin">
+				<content>
+					<HBox class="logincontainer" width="70%">
+						<HBox class="sapUiMediumMargin hboxta" justifyContent="Center" alignItems="Center" width="42%">
+							<VBox justifyContent="Center">
+								<Text text="{i18n>Time and Attendance}" class="texthbta"/>
+								<Image src="image/3255337.jpg" height="70%" width="100%"/>
+							</VBox>
+						</HBox>
+						<VBox class="sapUiMediumMargin sapUiSizeCompact Box" renderType="Bare" width="40%" fitContainer="true" justifyContent="Center"
+							alignItems="Center" alignContent="Center" visible="{oLoginModel>/sEnable}">
+							<Label text="{i18n>Sign In}" class="Signin "/>
+							<Label class="sapUiTinyMargin" text="{i18n>Sign in to attendance portal}"/>
+							<items>
+								<HBox class="Hbox sapUiTinyMargin" width="100%">
+									<core:Icon class="Icons" src="sap-icon://email"></core:Icon>
+									<Input id="uid" class="sapUiTinyMargin inputfield" value="{oLoginModel>/email}" width="100%" type="Email" change="onChange"
+										placeholder="{i18n>Email ID}"></Input>
+								</HBox>
+								<HBox class="Hbox sapUiTinyMargin" width="100%">
+									<core:Icon class="Icons" src="sap-icon://locked"></core:Icon>
+									<Input id="pasw" class="sapUiTinyMargin inputfield" value="{oLoginModel>/password}" width="100%" placeholder="{i18n>Password}"
+										type="Password"></Input>
+								</HBox>
+								<Button text="{i18n>Login}" class="loginbutton sapUiTinyMargin" press="onLoginTap"></Button>
+							</items>
+							<Link class="forgetpssw sapUiTinyMargin" textAlign="End" text="{i18n>Forgot Password?}" press="onForgot"/>
+							<Label class="sapUiTinyMargin" text="Or"/>
+							<items>
+								<Button icon="sap-icon://camera" text="{i18n>Face ID}" class="loginbutton" press="onCameraTap"></Button>
+							</items>
+							<HBox class="sapUiTinyMargin">
+								<Text text="{i18n>Not Registered?}"/>
+								<Link text="{i18n>Sign Up}" press="onLinkPress"/>
+							</HBox>
+						</VBox>
+						<VBox class="sapUiMediumMargin sapUiSizeCompact Box" renderType="Bare" fitContainer="true" width="40%" justifyContent="Center"
+							visible="{oLoginModel>/sEnable1}" alignItems="Center" alignContent="Center">
+							<Label text="{i18n>Sign Up}" class="Signin "/>
+							<Label class="sapUiTinyMargin" text="{i18n>Enter your Details}"/>
+							<items>
+								<HBox class="Hbox sapUiTinyMargin" width="100%">
+									<Input class="sapUiTinyMargin inputfield" width="100%" value="{oSignupModel>/email}" change="onSignupChange" type="Email"
+										placeholder="Email ID"></Input>
+								</HBox>
+								<HBox class="Hbox sapUiTinyMargin" width="100%">
+									<Input class="sapUiTinyMargin inputfield" width="100%" value="{oSignupModel>/phoneNo}" change="onSignupPhoneChange" type="Tel"
+										placeholder="{i18n>Phone Number}"></Input>
+								</HBox>
+								<HBox class="Hbox sapUiTinyMargin" width="100%">
+									<Input class="sapUiTinyMargin inputfield" width="100%" value="{oSignupModel>/password}" placeholder="{i18n>Password}" type="Password"></Input>
+								</HBox>
+								<HBox class="Hbox sapUiTinyMargin" width="100%">
+									<Input class="sapUiTinyMargin inputfield" width="100%" value="{oSignupModel>/cnfPassword}" placeholder="{i18n>Confirm Password}"
+										type="Password"></Input>
+								</HBox>
+								<HBox class="sapUiTinyMarginTop">
+									<MessageStrip text="{i18n>Password must be 8char and combination of Uppercase Lowercase Number and Special char }" type="Information"
+										showIcon="true" class="sapUiMediumMarginBottom"></MessageStrip>
+								</HBox>
+								<Button text="{i18n>Next}" class="loginbutton sapUiTinyMargin" press="onNextTap"></Button>
+								<HBox class="sapUiTinyMargin">
+									<Text text="{i18n>Already Registered?}"/>
+									<Link text="{i18n>Sign In}" press="onSigninPress"/>
+								</HBox>
+							</items>
+						</VBox>
+						<VBox class="sapUiMediumMargin sapUiSizeCompact Box" renderType="Bare" fitContainer="true" justifyContent="Center"
+							visible="{oLoginModel>/sEnable2}" width="40%" alignItems="Center" alignContent="Center">
+							<Label text="{i18n>Face Scan}" class="Signin sapUiTinyMargin "/>
+							<Image class="sapUiTinyMargin" src="image/Camera.png" width="50%"/>
+							<Label class="sapUiTinyMargin" text="{i18n>Stare at the Camera for 5 seconds}"/>
+							<Button text="{i18n>Record Video}" class="loginbutton sapUiTinyMargin"/>
+							<Button text="{i18n>Sign Up}" class="loginbutton sapUiTinyMargin" press="onSignup"/>
+						</VBox>
+						<VBox class="sapUiMediumMargin sapUiSizeCompact Box" renderType="Bare" fitContainer="true" width="40%" justifyContent="Center"
+							visible="{oLoginModel>/sEnable3}" alignItems="Center" alignContent="Center">
+							<Label text="{i18n>Forgot Password}" class="Signin "/>
+							<Label class="sapUiTinyMargin" text="{i18n>Enter your email address and we'll send you}"/>
+							<Label class="sapUiTinyMargin" text="{i18n>a link to reset your password}"/>
+							<items>
+								<HBox class="Hbox sapUiTinyMargin" width="100%">
+									<core:Icon class="Icons" src="sap-icon://email"></core:Icon>
+									<Input class="sapUiTinyMargin inputfield" width="100%" type="Email" value="{oForgotModel>/email}" placeholder="{i18n>Email ID}"></Input>
+								</HBox>
+								<Button text="{i18n>Submit}" class="loginbutton sapUiTinyMargin" press="onSubmit"></Button>
+								<Text text="{i18n>Back To}"/>
+								<Link text="{i18n>Sign In}" press="onSigninPress"/>
+							</items>
+						</VBox>
+						<VBox class="sapUiMediumMargin sapUiSizeCompact Box" renderType="Bare" fitContainer="true" width="40%" justifyContent="Center"
+							visible="{oLoginModel>/sEnable4}" alignItems="Center" alignContent="Center">
+							<Label text="{i18n>OTP Verification}" class="Signin "/>
+							<Label class="sapUiTinyMargin" text="{i18n>Check your email we have sent you a otp}"/>
+							<Label class="sapUiTinyMargin" text="{i18n>please enter the same below}"/>
+							<items>
+								<HBox class="Hbox sapUiTinyMargin" width="100%">
+									<core:Icon class="Icons" src="sap-icon://email"></core:Icon>
+									<Input class="sapUiTinyMargin inputfield" width="100%" type="Number" value="{oForgotModel>/otp}" placeholder="{i18n>Enter OTP}"></Input>
+								</HBox>
+								<Button text="{i18n>Next}" class="loginbutton sapUiTinyMargin" press="onNextPress"></Button>
+							</items>
+						</VBox>
+						<VBox class="sapUiMediumMargin sapUiSizeCompact Box" renderType="Bare" fitContainer="true" width="40%" justifyContent="Center"
+							visible="{oLoginModel>/sEnable5}" alignItems="Center" alignContent="Center">
+							<Label text="{i18n>Reset Password}" class="Signin "/>
+							<items>
+								<HBox class="Hbox sapUiTinyMargin" width="100%">
+									<Input class="sapUiTinyMargin inputfield" width="100%" value="{oForgotModel>/password}" placeholder="{i18n>Password}" type="Password"></Input>
+								</HBox>
+								<HBox class="Hbox sapUiTinyMargin" width="100%">
+									<Input class="sapUiTinyMargin inputfield" width="100%" value="{oForgotModel>/cnfPassword}" placeholder="{i18n>Confirm Password}"
+										type="Password"></Input>
+								</HBox>
+								<HBox class="sapUiTinyMarginTop">
+									<MessageStrip text="{i18n>Password must be 8char and combination of Uppercase Lowercase Number and Special char }" type="Information"
+										showIcon="true" class="sapUiMediumMarginBottom"></MessageStrip>
+								</HBox>
+								<Button text="{i18n>Save}" class="loginbutton sapUiTinyMargin" press="onSave"></Button>
+							</items>
+						</VBox>
+					</HBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

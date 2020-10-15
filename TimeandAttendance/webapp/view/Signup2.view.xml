@@ -1,0 +1,24 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.demo.TimeandAttendance.controller.Signup2"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page enableScrolling="false" class="backgroundimg sapUiResponsivePadding--header">
+				<customHeader>
+					<Bar class="header">
+						<contentLeft>
+							<Image class="logo" src="image/inc.png"/>
+						</contentLeft>
+					</Bar>
+				</customHeader>
+				<VBox class="sapUiSizeCompact Box" renderType="Bare" fitContainer="true" justifyContent="Center" alignItems="Center" alignContent="Center">
+					<Label text="Face Scan" class="Signin sapUiTinyMargin " />
+					<Image class="sapUiTinyMargin" src="image/Camera.png"/>
+					<Label class="sapUiTinyMargin" text="Stare at the Camera for 5 seconds"/>
+					<Button text="Record Video" class="loginbutton sapUiTinyMargin"/>
+					<Button text="Sign Up" class="loginbutton sapUiTinyMargin" press="onSignup"/>
+					</VBox>
+				<content></content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,19 @@
+{
+  "welcomeFile": "/TimeandAttendance/index.html",
+  "authenticationMethod": "route",
+  "logout": {
+    "logoutEndpoint": "/do/logout"
+  },
+  "routes": [
+  	{
+      "source": "^/Attendances",
+      "target": "/",
+      "destination": "Attendances"
+    },
+    {
+      "source": "^/TimeandAttendance/(.*)$",
+      "target": "$1",
+      "localDir": "webapp"
+    }
+  ]
+}
